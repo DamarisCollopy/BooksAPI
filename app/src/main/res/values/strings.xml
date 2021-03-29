@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BooksAPI</string>
+
+    <!-- Book Activity -->
+    <string name="Books_title">Books New York Times </string>
+
+    <!-- Details Book Activity -->
+    <string name="details_book_title">Title</string>
+    <string name="details_book_descripton">Description</string>
+</resources>
