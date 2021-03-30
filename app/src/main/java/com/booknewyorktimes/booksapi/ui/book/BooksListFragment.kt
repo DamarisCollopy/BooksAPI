@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.booknewyorktimes.booksapi.R
+import com.booknewyorktimes.booksapi.ui.details.DetailsBooksActivity
 import kotlinx.android.synthetic.main.fragment_books_list.*
 
 
@@ -39,7 +40,10 @@ class BooksListFragment : Fragment() {
                     layoutManager =
                         LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false)
                     setHasFixedSize(true)
-                    adapter = BooksAdapter(books)
+                    adapter = BooksAdapter(books){book ->
+                            val intent = DetailsBooksActivity.getStartIntent(view.getContext(), book.title, book.description)
+                            view.getContext().startActivity(intent)
+                    }
                 }
             }
         })
