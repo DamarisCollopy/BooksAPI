@@ -14,11 +14,16 @@ class DetailsBooksActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_books)
 
-        toolbar_main.title = getString(R.string.Details_title)
-        setSupportActionBar(toolbar_main)
+        toolbar()
 
         details_title_text.text = intent.getStringExtra(EXTRA_TITLE)
         details_description_text.text =  intent.getStringExtra(EXTRA_DESCRIPTION)
+    }
+
+    private fun toolbar() {
+        toolbar_main.title = getString(R.string.Details_title)
+        setSupportActionBar(toolbar_main)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     companion object {

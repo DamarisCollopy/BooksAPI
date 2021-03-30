@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">BooksAPI</string>
 
+    <!-- Start Fragment -->
+    <string name="text_title">Welcome New York Times Books</string>
+    <string name="botton_start">Start</string>
     <!-- Book Activity -->
     <string name="Books_title">Books New York Times </string>
 
