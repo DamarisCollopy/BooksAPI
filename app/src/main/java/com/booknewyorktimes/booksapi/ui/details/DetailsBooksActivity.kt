@@ -2,11 +2,13 @@ package com.booknewyorktimes.booksapi.ui.details
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.booknewyorktimes.booksapi.R
 import kotlinx.android.synthetic.main.activity_details_books.*
 import kotlinx.android.synthetic.main.include_toolbar_linear.*
+import java.net.URLEncoder
 
 
 class DetailsBooksActivity : AppCompatActivity() {
@@ -18,12 +20,24 @@ class DetailsBooksActivity : AppCompatActivity() {
 
         details_title_text.text = intent.getStringExtra(EXTRA_TITLE)
         details_description_text.text =  intent.getStringExtra(EXTRA_DESCRIPTION)
+
+        viewSearchGoogle()
     }
 
     private fun toolbar() {
         toolbar_main.title = getString(R.string.Details_title)
         setSupportActionBar(toolbar_main)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun viewSearchGoogle() {
+        val titleExtra = intent.getStringExtra(EXTRA_TITLE)
+        button_google.setOnClickListener {
+            val titleString: String = URLEncoder.encode(titleExtra, "UTF-8")
+            val uri = Uri.parse("https://www.google.com/#q=$titleString")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
+        }
     }
 
     companion object {

@@ -45,4 +45,16 @@
         android:layout_marginStart="16dp"
         tools:text="TextView2" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/search_book" />
+    </LinearLayout>
+
 </LinearLayout>
